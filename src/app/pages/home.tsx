@@ -47,11 +47,17 @@ const home = () => {
     fetchData();
   }, []);
 
+  const onPressSearch = () => {
+    setFiltered(
+      products.filter((data) => data.title === search || search === "")
+    );
+  };
+
   const skeletonData = Array.from({ length: 20 }).map(() => null);
   return (
     <SafeAreaView>
       <Header />
-      <Search value={search} onChange={setSearch} onSearch={() => {}} />
+      <Search value={search} onChange={setSearch} onSearch={onPressSearch} />
       <Categories filter={setFilter} />
       <Products data={filtered ?? products ?? skeletonData} />
     </SafeAreaView>

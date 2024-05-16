@@ -11,7 +11,7 @@ const Categories = ({ filter }: { filter: (arg0: number) => void }) => {
   ];
   const [categoryIndex, setCategoryIndex] = useState<number>(0);
   return (
-    <ScrollView horizontal className="px-4 mt-2 py-2 h-20">
+    <ScrollView horizontal className="px-4 mt-2 py-2 min-h-16">
       {categories.map((category, index) => {
         const styleFocused = index === categoryIndex ? "bg-black" : "";
         const textColor = index === categoryIndex ? "text-white" : "";

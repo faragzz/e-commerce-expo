@@ -1,5 +1,6 @@
 {
   "expo": {
+    "entryPoint": "./src/app/pages/home.tsx",
     "scheme": "acme",
     "userInterfaceStyle": "light",
     "orientation": "default",

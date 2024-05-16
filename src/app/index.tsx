@@ -3,6 +3,8 @@ import React, { useEffect } from "react";
 import { View, Text } from "react-native";
 import { Image } from "expo-image";
 import Logo from "../assets/logo1.png";
+import "react-native-reanimated";
+import "react-native-gesture-handler";
 
 export default function Page() {
   useEffect(() => {

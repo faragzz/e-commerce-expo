@@ -1,8 +1,7 @@
 import { Pressable, ScrollView, Text, View } from "react-native";
 import React, { useState } from "react";
 
-const Categories = () => {
-  // "jewelery"
+const Categories = ({ filter }: { filter: (arg0: number) => void }) => {
   const categories = [
     "All",
     "men's clothing",
@@ -21,7 +20,12 @@ const Categories = () => {
             key={index}
             className={`border-2 border-gray-300 py-2 px-7 rounded-2xl gap mr-4 ${styleFocused}`}
           >
-            <Pressable onPress={() => setCategoryIndex(index)}>
+            <Pressable
+              onPress={() => {
+                setCategoryIndex(index);
+                filter(index);
+              }}
+            >
               <Text className={textColor}>{category}</Text>
             </Pressable>
           </View>

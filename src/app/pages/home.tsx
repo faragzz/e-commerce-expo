@@ -10,6 +10,27 @@ import { Product } from "@/core/type";
 const home = () => {
   const [search, setSearch] = useState<string>();
   const [products, setProducts] = useState<Product[] | null>(null);
+  const [filtered, setFiltered] = useState<Product[] | null>(null);
+  const [filter, setFilter] = useState<number>(0);
+  //0 All,  1 men's clothing, 2 women's clothing,  3 electronics, 4 jewelery
+  const categories = [
+    "All",
+    "men's clothing",
+    "women's clothing",
+    "electronics",
+    "jewelery",
+  ];
+
+  useEffect(() => {
+    if (products) {
+      setFiltered(
+        products.filter(
+          (data) => data.category === categories[filter] || filter === 0
+        )
+      );
+    }
+  }, [filter, products]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -31,8 +52,8 @@ const home = () => {
     <SafeAreaView>
       <Header />
       <Search value={search} onChange={setSearch} onSearch={() => {}} />
-      <Categories />
-      <Products data={products ?? skeletonData} />
+      <Categories filter={setFilter} />
+      <Products data={filtered ?? products ?? skeletonData} />
     </SafeAreaView>
   );
 };

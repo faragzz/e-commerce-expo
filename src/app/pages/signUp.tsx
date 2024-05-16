@@ -10,6 +10,7 @@ import FormButton from "../components/button";
 const login = () => {
   const [email, setEmail] = useState<string>();
   const [password, setPassword] = useState<string>();
+  const [confPassword, setConPassword] = useState<string>();
   return (
     <SafeAreaView>
       <View className="relative flex flex-col items-center h-screen w-full p-4">
@@ -24,7 +25,7 @@ const login = () => {
         </View>
         <View className="mt-12 flex flex-col items-center w-full">
           <Text className="text-gray-600 text-2xl font-semibold">
-            Login to your Account
+            Create your Account
           </Text>
 
           <InputForm
@@ -41,16 +42,23 @@ const login = () => {
             value={password}
             className="mt-8"
           />
+          <InputForm
+            label="Confirm Password"
+            handleChange={setConPassword}
+            category="password"
+            value={confPassword}
+            className="mt-8"
+          />
           <FormButton
-            onClick={() => router.replace("/pages/home")}
-            label="Login"
+            onClick={() => router.push("/pages/login")}
+            label="Sign up"
             className="mt-10"
           />
         </View>
         <View className="absolute flex flex-row gap-2 bottom-10">
-          <Text className="">Don't Have an Account?</Text>
-          <Link href={"/pages/signUp"} className="text-green-600">
-            Sign Up
+          <Text className="">Already Have an Account?</Text>
+          <Link href={"/pages/login"} className="text-green-600">
+            Login
           </Link>
         </View>
       </View>

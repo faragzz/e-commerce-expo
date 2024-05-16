@@ -1,14 +1,14 @@
-import { Link, router } from "expo-router";
+import { router } from "expo-router";
 import React, { useEffect } from "react";
-import { View,Text } from "react-native";
+import { View, Text } from "react-native";
 import { Image } from "expo-image";
-import Logo from "../assets/logo.png";
+import Logo from "../assets/logo1.png";
 
 export default function Page() {
   useEffect(() => {
     const timer = setTimeout(() => {
       // Navigate to the desired screen after 1 second
-      router.push('/pages/login'); // Replace '/home' with your target route
+      router.push("/pages/login"); // Replace '/home' with your target route
     }, 2000);
 
     // Clean up the timer if the component unmounts

@@ -5,7 +5,8 @@ Use [Expo Router](https://docs.expo.dev/router/introduction/) with [Nativewind](
 ## 🚀 How to use
 
 ```sh
-npx create-expo-app -e with-router-tailwind
+npm i
+npx expo start
 ```
 ![3](https://github.com/faragzz/e-commerce-expo/assets/91439764/6ca7b904-dc21-4b4e-ab52-97fe07bbda25)
 

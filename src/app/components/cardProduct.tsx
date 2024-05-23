@@ -4,6 +4,7 @@ import { Image } from "expo-image";
 import { Product } from "@/core/type";
 import { AntDesign } from "@expo/vector-icons";
 import { Skeleton } from "moti/skeleton";
+import { Link } from "expo-router";
 
 const SkeletonCommonProps = {
   colorMode: "light",
@@ -30,10 +31,26 @@ const CardProduct = ({
         {...SkeletonCommonProps}
       >
         {item && (
-          <Image
-            source={item.image}
-            style={{ width: 150, height: 150, marginBottom: 2 }}
-          />
+          <Link
+            href={{
+              pathname: "/pages/detail",
+              params: {
+                id: item.id,
+                image: item.image,
+                title: item.title,
+                price: item.price,
+                description: item.description,
+                category: item.category,
+                rate: item.rating.rate,
+                count: item.rating.count,
+              },
+            }}
+          >
+            <Image
+              source={item.image}
+              style={{ width: 150, height: 150, marginBottom: 2 }}
+            />
+          </Link>
         )}
       </Skeleton>
       <View className="pt-2" />

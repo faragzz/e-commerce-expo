@@ -10,7 +10,7 @@ export default function Page() {
   useEffect(() => {
     const timer = setTimeout(() => {
       // Navigate to the desired screen after 1 second
-      router.push("/pages/login"); // Replace '/home' with your target route
+      router.push("/pages/home"); // Replace '/home' with your target route
     }, 2000);
 
     // Clean up the timer if the component unmounts
